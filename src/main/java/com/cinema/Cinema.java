@@ -33,6 +33,10 @@ public class Cinema {
         }
 
     public Seat findFirstAvailableSeatInRow(int row) {
+        if (row >= seats.length) {
+            return null;
+        }
+
         for (int i = 0; i < seats[row].length; i++) {
             if (seats[row][i].isAvailable()) {
                 return seats[row][i];
@@ -55,6 +59,9 @@ public class Cinema {
     public Seat getAvailableSeatsInRow(int row, int amount) {
         int seats_available = 0;
         int seat = 0;
+        if (row >= seats.length) {
+            return null;
+        }
         for (int i = 0; i < seats[row].length; i++) {
             if (seats_available == 0) {
                 if (seats[row][i].isAvailable()) {
